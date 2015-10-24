@@ -1,4 +1,4 @@
-function pasteSelection() {
+/*function pasteSelection() {
 	console.log("begin");
   	chrome.browserAction.onClicked.addListener(function(tab) {
   		console.log("2");
@@ -9,7 +9,7 @@ function pasteSelection() {
 	    	UrbanDictDefinition(text.value, text);
 	    });
 	});
-}
+} */
 
 function UrbanDictDefinition(data, text){
 	var xhr = new XMLHttpRequest(); 
@@ -26,11 +26,11 @@ function UrbanDictDefinition(data, text){
 	xhr.send();
 }
 
-/*
+
 function pasteSelection() {
     var text = document.getElementById('text'); 
    	UrbanDictDefinition(text.value, text);
-}*/
+}
 
 document.getElementById('text').addEventListener('keydown', function(e) {
 	key = e.which || e.keyCode;
@@ -41,5 +41,5 @@ document.getElementById('text').addEventListener('keydown', function(e) {
 });
 
 
-
+//http://stackoverflow.com/questions/2626859/chrome-extension-how-to-capture-selected-text-and-send-to-a-web-service
 
