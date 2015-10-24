@@ -1,17 +1,12 @@
-
-/*
 function pasteSelection() {
-  	chrome.tabs.query({"active":true, "currentWindow": true}, 
-	  	function(tab) {
-	    chrome.tabs.sendMessage(tab[0].id, {method: "getSelection"}, 
-	    	function (response) {
-	    	console.log(tab)
-	    	console.log(response)
+  	chrome.browserAction.onClicked.addListener(function(tab) {
+		chrome.tabs.sendRequest(tab[0].id, {method: "getSelection"}, function(response){
+	    	var text = response.data + text; 
+	    	console.log(text); 
+	    	UrbanDictDefinition(text.value, text);
 	    });
 	});
 }
-*/
-
 
 function UrbanDictDefinition(data, text){
 	var xhr = new XMLHttpRequest(); 
@@ -28,15 +23,20 @@ function UrbanDictDefinition(data, text){
 	xhr.send();
 }
 
-
+/*
 function pasteSelection() {
     var text = document.getElementById('text'); 
    	UrbanDictDefinition(text.value, text);
-}
+}*/
 
-document.getElementById('btn').addEventListener('click', function() {
-	pasteSelection();
-})
+document.getElementById('text').addEventListener('keydown', function(e) {
+	console.log(e);
+	key = e.which || e.keyCode;
+	if (key == 13) {
+		console.log(key); 
+		pasteSelection();
+	}
+});
 
 
 

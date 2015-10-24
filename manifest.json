@@ -15,11 +15,11 @@
   "https://*/*"
 ],
   "content_scripts": [
-  {
-  "matches": ["http://*/*"],
-  "js": ["selection.js"],
-  "run_at": "document_start",
-  "all_frames": true
-  }
+    {
+    "matches": ["http://*/*"],
+    "js": ["selection.js"],
+    "run_at": "document_start",
+    "all_frames": true
+    }
   ]
 }
