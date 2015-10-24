@@ -1,19 +1,19 @@
 {
-  "name": "Selected Text",
+  "name": "Urban Translate",
   "manifest_version": 2,
   "version": "0.1",
-  "description": "Selected Text",
+  "description": "Look up any word on Urban Dictionary",
   "browser_action": {
-  "default_title": "Selected Text",
-  "default_icon": "icon.png",
-  "default_popup": "popup.html" 
-},
+    "default_title": "Urban Translate",
+    "default_icon": "icon.png",
+    "default_popup": "popup.html" 
+  },
   "permissions": [
   "tabs",
   "chrome://favicon/",
   "http://*/*", 
   "https://*/*"
-],
+  ],
   "content_scripts": [
     {
     "matches": ["http://*/*"],
