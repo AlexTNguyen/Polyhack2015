@@ -1,6 +1,9 @@
 function pasteSelection() {
+	console.log("begin");
   	chrome.browserAction.onClicked.addListener(function(tab) {
-		chrome.tabs.sendRequest(tab[0].id, {method: "getSelection"}, function(response){
+  		console.log("2");
+		chrome.tabs.sendRequest(tab.id, {method: "getSelection"}, function(response){
+	    	console.log("3");
 	    	var text = response.data + text; 
 	    	console.log(text); 
 	    	UrbanDictDefinition(text.value, text);
@@ -30,10 +33,9 @@ function pasteSelection() {
 }*/
 
 document.getElementById('text').addEventListener('keydown', function(e) {
-	console.log(e);
 	key = e.which || e.keyCode;
 	if (key == 13) {
-		console.log(key); 
+		console.log("Calling pasteSelection");
 		pasteSelection();
 	}
 });
