@@ -1,4 +1,5 @@
 .selection_bubble {
+  max-width: 300px;
   visibility: hidden;
   position: absolute;
   top: 0;

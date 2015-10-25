@@ -1,16 +1,6 @@
-/*function pasteSelection() {
-	console.log("begin");
-  	chrome.browserAction.onClicked.addListener(function(tab) {
-  		console.log("2");
-		chrome.tabs.sendRequest(tab.id, {method: "getSelection"}, function(response){
-	    	console.log("3");
-	    	var text = response.data + text; 
-	    	console.log(text); 
-	    	UrbanDictDefinition(text.value, text);
-	    });
-	});
-} */
+// Code to translate words that the user types in the popup. 
 
+// Function that utilizes the API to find the definition. 
 function UrbanDictDefinition(data, text){
 	var xhr = new XMLHttpRequest(); 
 	var link = "http://api.urbandictionary.com/v0/define?term=" + data; 
@@ -26,12 +16,14 @@ function UrbanDictDefinition(data, text){
 	xhr.send();
 }
 
-
+// Changes the word that the user types in into the definition. 
 function pasteSelection() {
     var text = document.getElementById('text'); 
    	UrbanDictDefinition(text.value, text);
 }
 
+// Waits for user to press enter. Then calls a function to find the definition
+// of the word they typed in. 
 document.getElementById('text').addEventListener('keydown', function(e) {
 	key = e.which || e.keyCode;
 	if (key == 13) {
@@ -39,7 +31,4 @@ document.getElementById('text').addEventListener('keydown', function(e) {
 		pasteSelection();
 	}
 });
-
-
-//http://stackoverflow.com/questions/2626859/chrome-extension-how-to-capture-selected-text-and-send-to-a-web-service
 
